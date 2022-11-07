@@ -1,0 +1,13 @@
+.DS_Store
+.svn
+.zshrc.local
+samples
+Gemfile.lock
+node_modules
+
+# Fish local config
+.config/fish/config-local.fish
+.config/fish/fish_variables.x86_64
+
+# Karabiner
+.config/karabiner/automatic_backup
