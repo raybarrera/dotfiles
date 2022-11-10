@@ -7,6 +7,7 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
+    use 'sainnhe/sonokai'
     use 'wbthomason/packer.nvim' -- Package Manager
     use 'fatih/vim-go'
     use 'ray-x/lsp_signature.nvim'
@@ -25,7 +26,10 @@ packer.startup(function(use)
 
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+        run = function()
+                local ts_update = require('nvim-treesitter.install').update({with_sync=true})
+                ts_update()
+        end,
     }
     use {
         'nvim-telescope/telescope.nvim', branch = '0.1.x',

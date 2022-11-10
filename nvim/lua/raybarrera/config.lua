@@ -1,7 +1,7 @@
-require('base')
-require('highlights')
-require('maps')
-require('plugins')
+require('raybarrera.base')
+require('raybarrera.highlights')
+require('raybarrera.maps')
+require('raybarrera.plugins')
 
 local has = function(x)
     return vim.fn.has(x) == 1
