@@ -7,6 +7,7 @@ local options = {
         sorting_strategy = "ascending",
         prompt_prefix = "   ",
         layout_strategy = "horizontal",
+        initial_mode = "insert",
         winblend = 0,
         borer = {},
         borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
