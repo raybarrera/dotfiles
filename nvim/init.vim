@@ -12,9 +12,9 @@ function! TransparentBackground()
     highlight VertSplit gui=NONE guibg=NONE
 endfunction
 
-let g:sonokai_style = 'andromeda'
-let g:sonokai_better_performance = 1
-let g:sonokai_transparent_background = 1
+"""let g:sonokai_style = 'andromeda'
+"""let g:sonokai_better_performance = 1
+"""let g:sonokai_transparent_background = 1
 autocmd ColorScheme * call TransparentBackground()
-colorscheme sonokai
+colorscheme kanagawa
 

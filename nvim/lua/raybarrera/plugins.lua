@@ -8,6 +8,7 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
     use 'sainnhe/sonokai'
+    use {'rebelot/kanagawa.nvim', commit='1c36cda'}
     use 'wbthomason/packer.nvim' -- Package Manager
     use {
         "startup-nvim/startup.nvim",

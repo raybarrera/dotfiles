@@ -65,7 +65,8 @@ cmp.setup({
         { name = 'nvim_lsp_signature_help' },
         { name = 'luasnip' }, -- For luasnip users
         { name = 'buffer' },
-    }, 
+        { name = 'nvim_lua'},
+    },
 })
 
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}

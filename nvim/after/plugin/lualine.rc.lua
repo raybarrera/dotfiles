@@ -3,7 +3,7 @@ if (not status) then return end
 
 lualine.setup {
     options = {
-        theme = "onedark"
+        theme = "kanagawa"
     }
 }
 
