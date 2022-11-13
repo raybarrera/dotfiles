@@ -9,6 +9,13 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
     use 'sainnhe/sonokai'
     use 'wbthomason/packer.nvim' -- Package Manager
+    use {
+        "startup-nvim/startup.nvim",
+        requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+        config = function()
+            require"startup".setup({theme = "dashboard"})
+        end
+    }
     use 'fatih/vim-go'
     use 'ray-x/lsp_signature.nvim'
     use 'onsails/lspkind-nvim' -- vscode-like pictograms
