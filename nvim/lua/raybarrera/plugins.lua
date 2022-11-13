@@ -8,13 +8,12 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
     use 'sainnhe/sonokai'
-    use {'rebelot/kanagawa.nvim', commit='1c36cda'}
+    use {'rebelot/kanagawa.nvim', commit='fc2e308'}
     use 'wbthomason/packer.nvim' -- Package Manager
     use {
-        "startup-nvim/startup.nvim",
-        requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-        config = function()
-            require"startup".setup({theme = "dashboard"})
+        'goolord/alpha-nvim',
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.dashboard'.config)
         end
     }
     use 'fatih/vim-go'
