@@ -16,6 +16,7 @@ packer.startup(function(use)
             require'alpha'.setup(require'alpha.themes.dashboard'.config)
         end
     }
+    use 'tpope/vim-fugitive'
     use 'fatih/vim-go'
     use 'ray-x/lsp_signature.nvim'
     use 'onsails/lspkind-nvim' -- vscode-like pictograms
