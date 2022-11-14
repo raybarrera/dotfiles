@@ -48,6 +48,8 @@ nvim_lsp.gopls.setup{
     capabilities = capabilities,
     on_attach = on_attach,
     flags = lsp_flags,
+    filetypes = {"go", "gomod"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 }
 
 nvim_lsp.sumneko_lua.setup{
