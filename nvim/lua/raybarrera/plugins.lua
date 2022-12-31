@@ -8,14 +8,8 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
     use 'sainnhe/sonokai'
-    use {'rebelot/kanagawa.nvim', commit='fc2e308'}
     use 'wbthomason/packer.nvim' -- Package Manager
-    use {
-        'goolord/alpha-nvim',
-        config = function ()
-            require'alpha'.setup(require'alpha.themes.dashboard'.config)
-        end
-    }
+    use 'rebelot/kanagawa.nvim'
     use 'tpope/vim-fugitive'
     use 'fatih/vim-go'
     use 'ray-x/lsp_signature.nvim'
