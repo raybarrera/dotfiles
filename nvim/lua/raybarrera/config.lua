@@ -2,6 +2,7 @@ require('raybarrera.base')
 require('raybarrera.highlights')
 require('raybarrera.maps')
 require('raybarrera.plugins')
+require('raybarrera.filetype')
 
 local has = function(x)
     return vim.fn.has(x) == 1
