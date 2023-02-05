@@ -52,6 +52,12 @@ nvim_lsp.gopls.setup{
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 }
 
+nvim_lsp.tsserver.setup {
+    on_attach = on_attach,
+    filetypes = {"typescript", "typescriptreact", "typescript.tsx"},
+    cmd = {"typescript-language-server", "--stdio" }
+}
+
 nvim_lsp.sumneko_lua.setup{
     capabilities = capabilities,
     on_attach = function(client, bufnr)

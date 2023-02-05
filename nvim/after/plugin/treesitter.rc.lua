@@ -10,6 +10,11 @@ ts.setup {
         enable = true,
     },
     ensure_installed = {
+        "toml",
+        "php",
+        "swift",
+        "yaml",
+        "css",
         "go",
         "tsx",
         "json",
