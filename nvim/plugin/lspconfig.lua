@@ -58,6 +58,8 @@ nvim_lsp.tsserver.setup {
     cmd = {"typescript-language-server", "--stdio" }
 }
 
+nvim_lsp.astro.setup{}
+
 nvim_lsp.sumneko_lua.setup{
     capabilities = capabilities,
     on_attach = function(client, bufnr)
