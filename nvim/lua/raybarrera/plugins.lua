@@ -18,7 +18,6 @@ packer.startup(function(use)
     -- CMP
     use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
     use 'hrsh7th/cmp-buffer'
-    use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
@@ -33,6 +32,13 @@ packer.startup(function(use)
                 local ts_update = require('nvim-treesitter.install').update({with_sync=true})
                 ts_update()
         end,
+    }
+    use {
+        'akinsho/flutter-tools.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim',
+        },
     }
     use {
         'nvim-telescope/telescope.nvim', branch = '0.1.x',
