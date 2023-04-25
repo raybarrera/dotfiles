@@ -71,7 +71,9 @@ nvim_lsp.lua_ls.setup{
                 -- Make server aware of Neovim runtime files
                 globals = {'vim'},
             },
-
+            completion = {
+                callSnippet = 'Replace',
+            },
             workspace = {
                 library = {
                     vim.api.nvim_get_runtime_file("", true),

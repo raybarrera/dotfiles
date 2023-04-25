@@ -4,7 +4,7 @@ if (not status) then
     return
 end
 
-local snip_status,luasnip = pcall(require, "luasnip")
+local snip_status, luasnip = pcall(require, "luasnip")
 if not snip_status then
     vim.notify("luasnip plugin not found!")
     return
@@ -13,12 +13,12 @@ end
 require("luasnip.loaders.from_snipmate").lazy_load()
 
 local has_words_before = function()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local select_opts = { behavior = cmp.SelectBehavior.Select }
+local select_opts = { behavior = cmp.SelectBehavior.Insert }
 vim.g.copilot_assume_mapped = true
 
 cmp.setup({
@@ -44,9 +44,9 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({
+        ['<CR>'] = cmp.mapping(cmp.mapping.confirm({
             select = true,
-        }),
+        }), { 'i', 's' }),
         ['<C-b>'] = cmp.mapping(function(fallback)
             if luasnip.jumpable(-1) then
                 luasnip.jump(-1)
@@ -65,8 +65,8 @@ cmp.setup({
                 --                luasnip.expand()
                 --            elseif copilot_keys ~= '' and type(copilot_keys) == 'string' then
                 --                vim.api.nvim_feedkeys(copilot_keys, 'i', true)
---            elseif has_words_before() then
---                cmp.complete()
+                --            elseif has_words_before() then
+                --                cmp.complete()
             else
                 fallback()
             end
