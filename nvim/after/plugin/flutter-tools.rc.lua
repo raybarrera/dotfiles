@@ -30,4 +30,12 @@ ftools.setup {
     lsp = {
         on_attach = on_attach,
     },
+    decorations = {
+        statusline = {
+            app_version = true,
+            device = true,
+        }
+    },
+    fvm = true,
+    widget_guides = { enabled = true, },
 }
