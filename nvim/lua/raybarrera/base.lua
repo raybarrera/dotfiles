@@ -1,5 +1,7 @@
 vim.cmd("autocmd!")
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
@@ -23,3 +25,4 @@ vim.opt.mouse = 'v'
 vim.opt.showmatch = true
 vim.opt.ttyfast = true
 vim.opt.wildmode = "longest,list:longest,full"
+vim.opt.clipboard = "unnamedplus"
