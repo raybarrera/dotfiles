@@ -2,6 +2,7 @@ vim.cmd("autocmd!")
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.mousemoveevent = true
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.hlsearch = true

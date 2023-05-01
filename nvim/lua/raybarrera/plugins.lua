@@ -55,6 +55,11 @@ packer.startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use {
+        'akinsho/nvim-bufferline.lua',
+        requires = 'nvim-tree/nvim-web-devicons',
+        tag = 'v4.*',
+    }
+    use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
