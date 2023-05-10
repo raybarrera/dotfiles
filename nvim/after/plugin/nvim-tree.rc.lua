@@ -5,7 +5,7 @@ nvimtree.setup({
     disable_netrw = true,
     hijack_netrw = true,
     hijack_cursor = true,
-    hijack_unnamed_buffer_when_opening = false,
+    hijack_unnamed_buffer_when_opening = true,
     view = {
         adaptive_size = false,
         side = "left",
@@ -23,3 +23,5 @@ nvimtree.setup({
         dotfiles = false,
     },
 })
+
+vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
