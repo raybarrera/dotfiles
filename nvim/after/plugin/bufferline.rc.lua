@@ -6,18 +6,18 @@ if (not status) then
 end
 
 vim.opt.termguicolors = true
-
 bufferline.setup {
     options = {
         numbers = "ordinal",
+        style_preset = bufferline.style_preset.no_italic,
         color_icons = true,
         hover = {
-            enable = true,
-            delay = 200,
+            enabled = true,
+            delay = 100,
             reveal = {'close'},
         },
         indicator = {
-            style = "underline",
+            style = "icon",
         },
         diagnostics = "nvim_lsp",
         offsets = {
@@ -30,7 +30,7 @@ bufferline.setup {
             }
         },
         show_close_icon = false,
-        show_buffer_close_icons = false,
+        show_buffer_close_icons = true,
         separator_style = "thin",
         close_icon = "",
         buffer_close_icon = "",
@@ -39,3 +39,17 @@ bufferline.setup {
         left_mouse_command = "buffer %d",
     }
 }
+
+vim.keymap.set('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>2', '<cmd>BufferLineGoToBuffer 2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>3', '<cmd>BufferLineGoToBuffer 3<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>4', '<cmd>BufferLineGoToBuffer 4<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>5', '<cmd>BufferLineGoToBuffer 5<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>6', '<cmd>BufferLineGoToBuffer 6<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>7', '<cmd>BufferLineGoToBuffer 7<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>8', '<cmd>BufferLineGoToBuffer 8<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>9', '<cmd>BufferLineGoToBuffer 9<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>0', '<cmd>BufferLineGoToBuffer 10<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>$', '<cmd>BufferLineGoToBuffer -1<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>', { noremap = true, silent = true })

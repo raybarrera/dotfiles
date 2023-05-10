@@ -2,7 +2,7 @@ vim.cmd("autocmd!")
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g.mousemoveevent = true
+vim.opt.mousemoveevent = true
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
@@ -22,7 +22,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.hidden = true
-vim.opt.mouse = 'v'
+vim.opt.mouse = 'nv'
 vim.opt.showmatch = true
 vim.opt.ttyfast = true
 vim.opt.wildmode = "longest,list:longest,full"
