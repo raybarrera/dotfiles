@@ -45,13 +45,15 @@ local options = {
             n = {
                 ["q"] = require('telescope.actions').close
             }
-        }
+        },
     }
 }
 
 local builtin = require('telescope.builtin')
-
-vim.keymap.set('n', 'ff', builtin.find_files, {})
+local find = function()
+    builtin.find_files({ hidden = true })
+end
+vim.keymap.set('n', 'ff', find, {})
 vim.keymap.set('n', 'fg', builtin.live_grep, {})
 vim.keymap.set('n', 'fb', builtin.buffers, {})
 vim.keymap.set('n', 'fh', builtin.help_tags, {})
