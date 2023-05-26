@@ -32,9 +32,9 @@ local options = {
             height = 0.80,
             preview_cutoff = 120,
         },
-        initial_mode = "insert",
+        initial_mode = "normal",
         winblend = 0,
-        borer = {},
+        border = true,
         borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         color_devicons = true,
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
@@ -46,6 +46,16 @@ local options = {
                 ["q"] = require('telescope.actions').close
             }
         },
+    },
+    pickers = {
+        lsp_references = {
+            theme = "cursor",
+            layout_config = {
+                width = 0.5,
+                height = 0.5,
+                preview_width = 0.5,
+            },
+        },
     }
 }
 
@@ -53,9 +63,11 @@ local builtin = require('telescope.builtin')
 local find = function()
     builtin.find_files({ hidden = true })
 end
+
 vim.keymap.set('n', 'ff', find, {})
 vim.keymap.set('n', 'fg', builtin.live_grep, {})
 vim.keymap.set('n', 'fb', builtin.buffers, {})
 vim.keymap.set('n', 'fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
 
 telescope.setup(options)
