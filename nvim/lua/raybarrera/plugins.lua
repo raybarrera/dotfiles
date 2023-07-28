@@ -11,7 +11,7 @@ packer.startup(function(use)
     use 'wbthomason/packer.nvim' -- Package Manager
     use 'rebelot/kanagawa.nvim'
     use 'tpope/vim-fugitive'
-    use 'fatih/vim-go'
+    use 'ray-x/go.nvim'
     use { 'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons',
