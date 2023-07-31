@@ -59,6 +59,7 @@ local options = {
     }
 }
 
+telescope.load_extension("flutter")
 local builtin = require('telescope.builtin')
 local find = function()
     builtin.find_files({ hidden = true })

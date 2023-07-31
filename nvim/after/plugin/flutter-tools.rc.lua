@@ -29,6 +29,12 @@ end
 ftools.setup {
     lsp = {
         on_attach = on_attach,
+        color = {
+            enabled = true,
+            virtual_text = true,
+            background_color = {r = 0, g = 0, b = 0},
+            virtual_text_str = "■",
+        }
     },
     decorations = {
         statusline = {
