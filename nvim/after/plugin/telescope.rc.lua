@@ -17,7 +17,7 @@ local options = {
         file_ignore_patterns = { "node_modules", ".git" },
         path_display = { "truncate" },
         sorting_strategy = "ascending",
-        prompt_prefix = "   ",
+        prompt_prefix = " 🔎  ",
         layout_strategy = "horizontal",
         layout_config = {
             horizontal = {
@@ -32,7 +32,7 @@ local options = {
             height = 0.80,
             preview_cutoff = 120,
         },
-        initial_mode = "normal",
+        initial_mode = "insert",
         winblend = 0,
         border = true,
         borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
@@ -62,7 +62,7 @@ local options = {
 telescope.load_extension("flutter")
 local builtin = require('telescope.builtin')
 local find = function()
-    builtin.find_files({ hidden = true })
+    builtin.find_files({ hidden = false})
 end
 
 vim.keymap.set('n', 'ff', find, {})
