@@ -41,15 +41,26 @@ local lsp_flags = {
     debounce_text_changes = 150,
 }
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 nvim_lsp.gopls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
     flags = lsp_flags,
-    filetypes = { "go", "gomod" },
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+        },
+        analyses = {
+            unusedparams = true,
+        },
+        staticcheck = true,
+        gofumpt = true,
+    },
 }
 
 nvim_lsp.tsserver.setup {

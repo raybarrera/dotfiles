@@ -56,6 +56,17 @@ local options = {
                 preview_width = 0.5,
             },
         },
+        lsp_code_actions = {
+            theme = "cursor",
+            layout_config = {
+                width = 0.5,
+                height = 0.5,
+                preview_width = 0.5,
+            },
+        },
+        diagnostics = {
+            theme = "cursor",
+        },
     }
 }
 
