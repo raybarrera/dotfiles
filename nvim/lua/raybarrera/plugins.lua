@@ -37,6 +37,7 @@ packer.startup(function(use)
             ts_update()
         end,
     }
+    use 'vrischmann/tree-sitter-templ'
     use {
         'akinsho/flutter-tools.nvim',
         requires = {

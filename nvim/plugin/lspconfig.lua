@@ -63,6 +63,17 @@ nvim_lsp.gopls.setup {
     },
 }
 
+nvim_lsp.templ.setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+nvim_lsp.tailwindcss.setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ" }
+}
+
 nvim_lsp.tsserver.setup {
     on_attach = on_attach,
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },

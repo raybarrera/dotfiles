@@ -1,6 +1,7 @@
 vim.filetype.add({
     extension = {
         script = "lua",
-        astro = "astro"
+        astro = "astro",
+        templ = "templ",
     }
 })
