@@ -67,13 +67,21 @@ local options = {
         diagnostics = {
             theme = "cursor",
         },
-    }
+    },
+    extensions = {
+        file_browser = {
+            theme = "dropdown",
+            hijack_netrw = true,
+            hidden = { file_browser = true },
+            display_stat = { mode = true },
+        },
+    },
 }
 
 telescope.load_extension("flutter")
 local builtin = require('telescope.builtin')
 local find = function()
-    builtin.find_files({ hidden = false})
+    builtin.find_files({ hidden = false })
 end
 
 vim.keymap.set('n', 'ff', find, {})
@@ -83,3 +91,5 @@ vim.keymap.set('n', 'fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
 
 telescope.setup(options)
+telescope.load_extension("file_browser")
+vim.keymap.set('n', 'ft', telescope.extensions.file_browser.file_browser, {})

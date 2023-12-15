@@ -12,11 +12,6 @@ packer.startup(function(use)
     use 'rebelot/kanagawa.nvim'
     use 'tpope/vim-fugitive'
     use 'ray-x/go.nvim'
-    use { 'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons',
-        },
-    }
     use 'ray-x/lsp_signature.nvim'
     use 'onsails/lspkind-nvim' -- vscode-like pictograms
     use 'neovim/nvim-lspconfig' -- Configurations for LSP
