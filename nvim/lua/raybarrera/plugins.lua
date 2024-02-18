@@ -12,7 +12,7 @@ packer.startup(function(use)
     use 'rebelot/kanagawa.nvim'
     use 'tpope/vim-fugitive'
     use 'ray-x/go.nvim'
-    use 'ray-x/lsp_signature.nvim'
+    use 'ray-x/guihua.lua'
     use 'onsails/lspkind-nvim' -- vscode-like pictograms
     use 'neovim/nvim-lspconfig' -- Configurations for LSP
     -- CMP
@@ -21,6 +21,7 @@ packer.startup(function(use)
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use "rafamadriz/friendly-snippets"
     use({ "L3MON4D3/LuaSnip", tag = "v2.*", run = "make install_jsregexp" })
     use 'saadparwaiz1/cmp_luasnip' -- for cmp-luasnip integration
