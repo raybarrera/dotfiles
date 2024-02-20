@@ -10,18 +10,41 @@ if not snip_status then
     return
 end
 
+local lspkind_status, lspkind = pcall(require, "lspkind")
+if not lspkind_status then
+    vim.notify("lspkind plugin not found!")
+    return
+end
+
 require("luasnip.loaders.from_snipmate").lazy_load()
 
 local has_words_before = function()
     unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match('^%s*$') == nil
 end
 
 local select_opts = { behavior = cmp.SelectBehavior.Insert }
-vim.g.copilot_assume_mapped = true
 
 cmp.setup({
+    completion = {
+        completeopt = 'menu,menuone',
+    },
+    experimental = {
+        ghost_text = true,
+    },
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = 'symbol_text',
+            maxwidth = 150,
+            ellipsis_char = '…',
+            show_labelDetails = true,
+            symbol_map = { Copilot = "" },
+            before = function(_, vim_item)
+                return vim_item
+            end,
+        }),
+    },
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -54,19 +77,11 @@ cmp.setup({
                 fallback()
             end
         end, { 'i', 's' }),
-        ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-                --            elseif luasnip.jumpable(1) then
-                --                luasnip.jump(1)
+        ['<Tab>'] = vim.schedule_wrap(function(fallback)
+            if cmp.visible() and has_words_before() then
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
-                --            elseif luasnip.expandable() then
-                --                luasnip.expand()
-                --            elseif copilot_keys ~= '' and type(copilot_keys) == 'string' then
-                --                vim.api.nvim_feedkeys(copilot_keys, 'i', true)
-                --            elseif has_words_before() then
-                --                cmp.complete()
             else
                 fallback()
             end
@@ -82,6 +97,7 @@ cmp.setup({
         end, { 'i', 's' })
     }),
     sources = {
+        { name = 'copilot' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip users
         { name = 'buffer' },
@@ -103,7 +119,7 @@ cmp.setup.cmdline(':', {
     sources = cmp.config.sources({ { name = 'path' }, { name = 'cmdline' } }),
 })
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-vim.cmd [[
-    highlight! default link CmpItemKind CmpItemMenuDefault
-]]
+-- vim.opt.completeopt = { 'menu', 'menuone' }
+-- vim.cmd [[
+--highlight! default link CmpItemKind CmpItemMenuDefault
+--]]

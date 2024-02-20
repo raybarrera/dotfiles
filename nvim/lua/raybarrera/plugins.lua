@@ -25,7 +25,12 @@ packer.startup(function(use)
     use "rafamadriz/friendly-snippets"
     use({ "L3MON4D3/LuaSnip", tag = "v2.*", run = "make install_jsregexp" })
     use 'saadparwaiz1/cmp_luasnip' -- for cmp-luasnip integration
-    use 'github/copilot.vim'
+    use {
+        'zbirenbaum/copilot.lua',
+    }
+    use {
+        'zbirenbaum/copilot-cmp',
+    }
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -60,5 +65,5 @@ packer.startup(function(use)
         config = function() require("nvim-autopairs").setup {} end
     }
     use { 'lewis6991/gitsigns.nvim' }
-    use {'wuelnerdotexe/vim-astro'}
+    use { 'wuelnerdotexe/vim-astro' }
 end)
