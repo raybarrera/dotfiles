@@ -28,7 +28,7 @@ local select_opts = { behavior = cmp.SelectBehavior.Insert }
 
 cmp.setup({
     completion = {
-        completeopt = 'menu,menuone',
+        completeopt = 'menu,menuone,noselect',
     },
     experimental = {
         ghost_text = true,

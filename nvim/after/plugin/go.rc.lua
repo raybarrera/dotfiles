@@ -22,9 +22,9 @@ go.setup {
     comment_placeholder = "   ",
     lsp_cfg = false, -- true: apply go.nvim non-default gopls setup
     lsp_gofumpt = true, -- true: set default gofmt in gopls format to gofumpt
-   -- lsp_on_attach = on_attach, -- use on_attach from go.nvim
+    -- lsp_on_attach = true, -- use on_attach from go.nvim
     lsp_keymaps = false, -- true: apply go.nvim keymaps
-    lsp_codelens = true, -- set to false to disable codelens, true by default
+    lsp_codelens = false, -- set to false to disable codelens, true by default
     dap_debug = false, -- set to true to enable dap
     dap_debug_keymap = false, -- set keymaps for debugger
     dap_debug_gui = false, -- set to true to enable dap gui, highly recommanded
