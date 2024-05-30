@@ -71,8 +71,9 @@ local options = {
     extensions = {
         file_browser = {
             theme = "dropdown",
+            initial_mode = "normal",
             hijack_netrw = true,
-            hidden = { file_browser = true },
+            hidden = {file_browser = true, folder_browser = true},
             display_stat = { mode = true },
         },
     },
@@ -81,7 +82,7 @@ local options = {
 telescope.load_extension("flutter")
 local builtin = require('telescope.builtin')
 local find = function()
-    builtin.find_files({ hidden = false })
+    builtin.find_files({ hidden = true })
 end
 
 vim.keymap.set('n', 'ff', find, {})
