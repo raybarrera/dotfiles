@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 go.setup {
-    goimport = "gopls", -- goimports, gopls, or leave empty to use gofmt
+    goimports = "gopls", -- goimports, gopls, or leave empty to use gofmt
     gofmt = "gofumpt", --gofmt, goimports, or leave empty to use gofmt
     tag_transform = false,
     test_dir = "",
